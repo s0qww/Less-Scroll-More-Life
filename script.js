@@ -1,4 +1,4 @@
-// Проста анімація появи карток при скролі
+// Анімація появи карток при скролі
 const cards = document.querySelectorAll('.card');
 
 const observer = new IntersectionObserver(entries => {
@@ -11,4 +11,11 @@ const observer = new IntersectionObserver(entries => {
 
 cards.forEach(card => {
     observer.observe(card);
+});
+
+// Перемикання теми
+const toggleBtn = document.getElementById('theme-toggle');
+toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    document.body.classList.toggle('light');
 });

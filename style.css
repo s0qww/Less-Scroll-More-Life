@@ -13,7 +13,7 @@ body.light {
 }
 
 body.dark {
-    background: #333;
+    background: #222;
     color: #f4f4f4;
 }
 
@@ -35,6 +35,7 @@ header nav a {
     text-decoration: none;
     font-weight: 600;
     position: relative;
+    transition: color 0.3s;
 }
 
 header nav a::after {
@@ -60,6 +61,14 @@ header nav a:hover::after {
     color: white;
 }
 
+header h1 {
+    transition: color 0.5s;
+}
+
+body.dark header h1 {
+    color: #FFD700; /* змінюємо колір чолки у темній темі */
+}
+
 .section {
     padding: 80px 50px;
     text-align: center;
@@ -68,6 +77,11 @@ header nav a:hover::after {
 .hero {
     background: linear-gradient(135deg, #6DD5FA, #2980B9);
     color: white;
+}
+
+body.dark .hero {
+    background: linear-gradient(135deg, #444, #111);
+    color: #FFD700;
 }
 
 .btn {
@@ -104,7 +118,7 @@ header nav a:hover::after {
 }
 
 body.dark .card {
-    background: #555;
+    background: #444;
     color: #f4f4f4;
 }
 
@@ -128,8 +142,49 @@ body.dark .card {
     max-height: 200px;
 }
 
+/* Фото/гіфки у секціях */
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Анімація появи карток при скролі */
+.card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-out;
+}
+
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Footer */
 footer {
     background: #333;
     color: white;
     padding: 20px;
+    text-align: center;
+}
+
+body.dark footer {
+    background: #111;
+    color: #FFD700;
+}
+
+.home-footer a {
+    color: #4C79FF;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+body.dark .home-footer a {
+    color: #FFD700;
+}
+
+.home-footer a:hover {
+    text-decoration: underline;
 }

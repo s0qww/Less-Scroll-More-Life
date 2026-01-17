@@ -1,4 +1,4 @@
-// Плавна анімація карток при скролі
+// Анімація карток при скролі
 const cards = document.querySelectorAll('.card');
 
 const observer = new IntersectionObserver(entries => {
@@ -20,7 +20,7 @@ toggleBtn.addEventListener('click', () => {
     document.body.classList.toggle('light');
 });
 
-// Плавний скрол при кліку на вкладки
+// Плавний скрол по вкладках
 document.querySelectorAll('header nav a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();

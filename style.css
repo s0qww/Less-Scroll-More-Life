@@ -4,6 +4,17 @@ body {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
+    transition: background 0.5s, color 0.5s;
+}
+
+body.light {
+    background: #f4f4f4;
+    color: #333;
+}
+
+body.dark {
+    background: #333;
+    color: #f4f4f4;
 }
 
 header {
@@ -23,11 +34,30 @@ header nav a {
     margin-left: 20px;
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s;
+    position: relative;
 }
 
-header nav a:hover {
-    color: #FFD700;
+header nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #FFD700;
+    transition: width 0.3s;
+}
+
+header nav a:hover::after {
+    width: 100%;
+}
+
+#theme-toggle {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
 }
 
 .section {
@@ -68,12 +98,34 @@ header nav a:hover {
     padding: 20px;
     width: 250px;
     border-radius: 10px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
+    position: relative;
+    cursor: pointer;
+}
+
+body.dark .card {
+    background: #555;
+    color: #f4f4f4;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Картки книг з описом */
+.book-desc {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.book-card:hover .book-desc {
+    opacity: 1;
+    max-height: 200px;
 }
 
 footer {
